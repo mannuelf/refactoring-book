@@ -1,7 +1,7 @@
-# Refactoring
+# Refactoring 2nd Edition
 
-Example code re-writter from [Refactoring - Improving the design of existing code](https://www.informit.com/store/refactoring-improving-the-design-of-existing-code-9780134757599)
+Example code re-written for my education purposes from Refactoring - Improving the design of existing code
 
-by: Martin Fowler forward Kent Beck
+[Buy it here](https://www.informit.com/store/refactoring-improving-the-design-of-existing-code-9780134757599)
 
 ![refactoring](.github/refactoring.jpeg)
