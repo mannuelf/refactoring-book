@@ -48,3 +48,5 @@ function statement() {
   result += `You earned ${volumeCredits} credits\n`;
   return result;
 }
+
+export default statement;
