@@ -1,10 +1,13 @@
-import invoice from './data/invoice';
-import plays from './data/plays';
+import invoice from './data/invoice.ts';
+import plays from './data/plays.ts';
 
-function statement() {
+export function statement() {
+  console.log('statement generating...');
+
   let totalAmount = 0;
   let volumeCredits = 0;
   let result = `Statement for ${invoice.customer}\n`;
+
   const format = new Intl.NumberFormat('en-US', {
     style: 'currency',
     currency: 'USD',
@@ -44,9 +47,9 @@ function statement() {
     } seats)\n`;
     totalAmount += thisAmount;
   }
+
   result += `Amount owed is ${format(totalAmount / 100)}\n`;
   result += `You earned ${volumeCredits} credits\n`;
+
   return result;
 }
-
-export default statement;

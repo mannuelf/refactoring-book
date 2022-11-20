@@ -1,2 +1,3 @@
-import statement from './01/statement';
-statement();
+import { statement } from './01/statement.ts';
+
+console.log(statement());
