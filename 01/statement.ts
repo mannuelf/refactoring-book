@@ -3,7 +3,7 @@ import invoice from './data/invoice.ts';
 import plays from './data/plays.ts';
 
 export function statement() {
-  console.log('➕ statement generating...');
+  console.log('💵 generating statement 💵');
 
   let totalAmount = 0;
   let volumeCredits = 0;
