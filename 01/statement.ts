@@ -1,6 +1,6 @@
 import { amountFor } from './amountFor.ts';
 import invoice from './data/invoice.ts';
-import plays from './data/plays.ts';
+import { playFor } from './playFor.ts';
 
 export function statement() {
   console.log('💵 generating statement 💵');
@@ -16,7 +16,7 @@ export function statement() {
   }).format;
 
   for (const perf of invoice.performances) {
-    const play = plays[perf.playID];
+    const play = playFor(perf);
 
     // add volume credits
     volumeCredits += Math.max(perf.audience - 30, 0);
