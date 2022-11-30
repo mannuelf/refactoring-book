@@ -1,6 +1,6 @@
 import { amountFor } from './amountFor.ts';
 import invoice from './data/invoice.ts';
-import plays from './data/plays.ts';
+import { playFor } from './playFor.ts';
 
 export function statement() {
   console.log('💵 generating statement 💵');
@@ -16,18 +16,14 @@ export function statement() {
   }).format;
 
   for (const perf of invoice.performances) {
-    const play = plays[perf.playID];
-
     // add volume credits
     volumeCredits += Math.max(perf.audience - 30, 0);
     // add extra credit for every ten comedy attendees
-    if ('comedy' === play.type) volumeCredits += Math.floor(perf.audience / 5);
+    if ('comedy' === playFor(perf).type) volumeCredits += Math.floor(perf.audience / 5);
 
     // print line for this order
-    result += `${play.name}: ${format(amountFor(perf, play) / 100)} (${
-      perf.audience
-    } seats)\n`;
-    totalAmount += amountFor(perf, play);
+    result += `${playFor(perf).name}: ${format(amountFor(perf, playFor(perf)) / 100)} (${perf.audience} seats)\n`;
+    totalAmount += amountFor(perf, playFor(perf));
   }
 
   result += `Amount owed is ${format(totalAmount / 100)}\n`;
