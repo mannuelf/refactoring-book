@@ -17,7 +17,6 @@ export function statement() {
 
   for (const perf of invoice.performances) {
     volumeCredits(perf);
-    // print line for this order
     result += `${playFor(perf).name}: ${format(amountFor(perf, playFor(perf)) / 100)} (${perf.audience} seats)\n`;
     totalAmount += amountFor(perf, playFor(perf));
   }
