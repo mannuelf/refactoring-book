@@ -3,5 +3,5 @@ export function usd(aNumber: number) {
     style: 'currency',
     currency: 'USD',
     minimumFractionDigits: 2,
-  }).format(aNumber);
+  }).format(aNumber / 100);
 }
