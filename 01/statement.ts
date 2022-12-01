@@ -1,5 +1,6 @@
 import { amountFor } from './amountFor.ts';
 import invoice from './data/invoice.ts';
+import { format } from './format.ts';
 import { playFor } from './playFor.ts';
 import { volumeCredits } from './volumeCredits.ts';
 
@@ -9,11 +10,7 @@ export function statement() {
   let totalAmount = 0;
   let result = `Statement for ${invoice.customer}\n`;
 
-  const format = new Intl.NumberFormat('en-US', {
-    style: 'currency',
-    currency: 'USD',
-    minimumFractionDigits: 2,
-  }).format;
+  format();
 
   for (const perf of invoice.performances) {
     volumeCredits(perf);
