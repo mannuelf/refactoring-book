@@ -8,7 +8,7 @@ export function statement() {
   console.log('💵 generating statement 💵');
 
   let totalAmount = 0;
-  let volumeCredits = 0;
+
   let result = `Statement for ${invoice.customer}\n`;
 
   for (const perf of invoice.performances) {
@@ -16,6 +16,7 @@ export function statement() {
     totalAmount += amountFor(perf, playFor(perf));
   }
 
+  let volumeCredits = 0;
   for (const perf of invoice.performances) {
     volumeCredits += volumeCreditsFor(perf);
   }
