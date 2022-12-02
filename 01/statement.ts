@@ -1,5 +1,5 @@
 import { amountFor } from './amountFor.ts';
-import invoice from './data/invoice.ts';
+import { invoice } from './data/invoice.ts';
 import { playFor } from './playFor.ts';
 import { totalVolumeCredits } from './totalVolumeCredits.ts';
 import { usd } from './usd.ts';
