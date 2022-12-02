@@ -1,3 +1,7 @@
+export interface Invoice {
+  customer: string;
+  performances: PlayPerformance[];
+}
 export interface Plays {
   [key: string]: Play;
 }
