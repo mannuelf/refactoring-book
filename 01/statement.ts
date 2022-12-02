@@ -16,7 +16,7 @@ export function statement() {
   }
 
   result += `Amount owed is ${usd(totalAmount)}\n`;
-  result += `You earned ${totalVolumeCredits()} credits\n`;
+  result += `You earned ${totalVolumeCredits(invoice)} credits\n`;
 
   return result;
 }
