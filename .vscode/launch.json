@@ -5,13 +5,22 @@
   "version": "0.2.0",
   "configurations": [
     {
+      "name": "Attach by Process ID",
+      "processId": "${command:PickProcess}",
+      "request": "attach",
+      "skipFiles": [
+        "<node_internals>/**"
+      ],
+      "type": "node"
+    },
+    {
       "request": "launch",
-      "name": "Launch Program",
+      "name": "🕵️‍♀️ Deno debugger",
       "type": "node",
       "program": "${workspaceFolder}/main.ts",
       "cwd": "${workspaceFolder}",
-      "runtimeExecutable": "/home/mannuel/.deno/bin/deno",
-      "runtimeArgs": ["run", "--inspect", "--allow-all"],
+      "runtimeExecutable": "deno",
+      "runtimeArgs": ["run", "--allow-all", "--watch"],
       "attachSimplePort": 9229
     }
   ]
