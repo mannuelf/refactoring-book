@@ -1,8 +1,8 @@
-import { playFor } from './playFor.ts';
-import { usd } from './usd.ts';
-import { totalVolumeCredits } from './totalVolumeCredits.ts';
 import { amountFor } from './amountFor.ts';
+import { playFor } from './playFor.ts';
+import { totalVolumeCredits } from './totalVolumeCredits.ts';
 import { Invoice, Plays } from './types.ts';
+import { usd } from './usd.ts';
 
 export function statement(invoice: Invoice, plays: Plays) {
   const statementData = {};
