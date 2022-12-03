@@ -1,12 +1,16 @@
-import { amountFor } from './amountFor.ts';
-import { invoice } from './data/invoice.ts';
 import { playFor } from './playFor.ts';
-import { totalVolumeCredits } from './totalVolumeCredits.ts';
 import { usd } from './usd.ts';
+import { totalVolumeCredits } from './totalVolumeCredits.ts';
+import { amountFor } from './amountFor.ts';
+import { Invoice, Plays } from './types.ts';
 
-export function statement() {
-  console.log('💵 generating statement 💵');
+export function statement(invoice: Invoice, plays: Plays) {
+  const statementData = {};
+  return renderPlaintText(invoice, plays);
+}
 
+function renderPlaintText(invoice: Invoice, plays: Plays) {
+  console.log('💵 generating plain text statement 💵');
   let totalAmount = 0;
   let result = `Statement for ${invoice.customer}\n`;
 
