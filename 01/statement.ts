@@ -6,10 +6,10 @@ import { usd } from './usd.ts';
 
 export function statement(invoice: Invoice, plays: Plays) {
   const statementData = {};
-  return renderPlaintText(invoice, plays);
+  return renderPlaintText(statementData, invoice, plays);
 }
 
-function renderPlaintText(invoice: Invoice, plays: Plays) {
+function renderPlaintText(data, invoice: Invoice, plays: Plays) {
   console.log('💵 generating plain text statement 💵');
   let totalAmount = 0;
   let result = `Statement for ${invoice.customer}\n`;
