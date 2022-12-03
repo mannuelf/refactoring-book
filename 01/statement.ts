@@ -5,14 +5,15 @@ import { Invoice, Plays } from './types.ts';
 import { usd } from './usd.ts';
 
 export function statement(invoice: Invoice, plays: Plays) {
-  const statementData = {};
+  const statementData: Invoice = {};
+  statementData.customer = invoice.customer;
   return renderPlaintText(statementData, invoice, plays);
 }
 
-function renderPlaintText(data, invoice: Invoice, plays: Plays) {
+function renderPlaintText(data: Invoice, invoice: Invoice, plays: Plays) {
   console.log('💵 generating plain text statement 💵');
   let totalAmount = 0;
-  let result = `Statement for ${invoice.customer}\n`;
+  let result = `Statement for ${data.customer}\n`;
 
   for (const perf of invoice.performances) {
     result += `${playFor(perf).name}: ${usd(amountFor(perf, playFor(perf)))} (${perf.audience} seats)\n`;
