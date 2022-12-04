@@ -5,7 +5,10 @@ import { Invoice, Plays } from './types.ts';
 import { usd } from './usd.ts';
 
 export function statement(invoice: Invoice, plays: Plays) {
-  const statementData: Invoice = {};
+  const statementData: Invoice = {
+    customer: '',
+    performances: [],
+  };
   statementData.customer = invoice.customer;
   return renderPlaintText(statementData, invoice, plays);
 }
