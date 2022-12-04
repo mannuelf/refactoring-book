@@ -1,7 +1,7 @@
 import { amountFor } from './amountFor.ts';
 import { playFor } from './playFor.ts';
 import { totalVolumeCredits } from './totalVolumeCredits.ts';
-import { Invoice, Plays } from './types.ts';
+import { Invoice, PlayPerformance, Plays } from './types.ts';
 import { usd } from './usd.ts';
 
 export function statement(invoice: Invoice, plays: Plays) {
@@ -11,7 +11,12 @@ export function statement(invoice: Invoice, plays: Plays) {
   };
 
   statementData.customer = invoice.customer;
-  statementData.performances = invoice.performances;
+  statementData.performances = invoice.performances.map(enrichPerformance);
+
+  function enrichPerformance(aPerformance: PlayPerformance) {
+    const result = Object.assign({}, aPerformance);
+    return result;
+  }
 
   return renderPlaintText(statementData, plays);
 }
