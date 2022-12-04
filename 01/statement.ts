@@ -9,22 +9,25 @@ export function statement(invoice: Invoice, plays: Plays) {
     customer: '',
     performances: [],
   };
+
   statementData.customer = invoice.customer;
-  return renderPlaintText(statementData, invoice, plays);
+  statementData.performances = invoice.performances;
+
+  return renderPlaintText(statementData, plays);
 }
 
-function renderPlaintText(data: Invoice, invoice: Invoice, plays: Plays) {
+function renderPlaintText(data: Invoice, plays: Plays) {
   console.log('💵 generating plain text statement 💵');
   let totalAmount = 0;
   let result = `Statement for ${data.customer}\n`;
 
-  for (const perf of invoice.performances) {
+  for (const perf of data.performances) {
     result += `${playFor(perf).name}: ${usd(amountFor(perf, playFor(perf)))} (${perf.audience} seats)\n`;
     totalAmount += amountFor(perf, playFor(perf));
   }
 
   result += `Amount owed is ${usd(totalAmount)}\n`;
-  result += `You earned ${totalVolumeCredits(invoice)} credits\n`;
+  result += `You earned ${totalVolumeCredits(data)} credits\n`;
 
   return result;
 }
