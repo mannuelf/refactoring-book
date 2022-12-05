@@ -12,4 +12,5 @@ export type PlayPerformance = {
   playID: string;
   audience: number;
   play: Play;
+  amount: number;
 };

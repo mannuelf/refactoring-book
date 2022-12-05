@@ -1,6 +1,6 @@
 import type { Play, PlayPerformance } from './types.ts';
 
-export function amountFor(aPerformance: PlayPerformance) {
+export function amountFor(aPerformance: PlayPerformance): number {
   let result = 0;
 
   switch (aPerformance.play.type) {

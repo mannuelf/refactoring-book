@@ -16,6 +16,7 @@ export function statement(invoice: Invoice, plays: Plays) {
   function enrichPerformance(aPerformance: PlayPerformance) {
     const result: PlayPerformance = Object.assign({}, aPerformance);
     result.play = playFor(result);
+    result.amount = amountFor(result);
     return result;
   }
 
