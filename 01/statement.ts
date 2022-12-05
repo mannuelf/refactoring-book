@@ -24,16 +24,22 @@ export function statement(invoice: Invoice, plays: Plays) {
 
 function renderPlaintText(data: Invoice, plays: Plays) {
   console.log('💵 generating plain text statement 💵');
-  let totalAmount = 0;
   let result = `Statement for ${data.customer}\n`;
 
   for (const perf of data.performances) {
-    result += `${playFor(perf).name}: ${usd(amountFor(perf, playFor(perf)))} (${perf.audience} seats)\n`;
-    totalAmount += amountFor(perf, playFor(perf));
+    result += `${playFor(perf).name}: ${usd(totalAmount())} (${perf.audience} seats)\n`;
   }
 
-  result += `Amount owed is ${usd(totalAmount)}\n`;
+  result += `Amount owed is ${usd(totalAmount())}\n`;
   result += `You earned ${totalVolumeCredits(data)} credits\n`;
+
+  function totalAmount() {
+    let result = 0;
+    for (const perf of data.performances) {
+      result += amountFor(perf);
+    }
+    return result;
+  }
 
   return result;
 }
