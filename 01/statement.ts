@@ -2,7 +2,7 @@ import { amountFor } from './amountFor.ts';
 import { playFor } from './playFor.ts';
 import totalAmount from './totalAmount.ts';
 import { totalVolumeCredits } from './totalVolumeCredits.ts';
-import { IInvoice, PlayPerformance, IPlays } from './types.ts';
+import { IInvoice, IPlays, PlayPerformance } from './types.ts';
 import { usd } from './usd.ts';
 import { volumeCreditsFor } from './volumeCreditsFor.ts';
 
@@ -40,8 +40,8 @@ function renderPlaintText(data: IInvoice, plays: IPlays) {
     result += `${perf.play.name}: ${usd(perf.amount)} (${perf.audience} seats)\n`;
   }
 
-  result += `Amount owed is ${usd(totalAmount(data))}\n`;
-  result += `You earned ${totalVolumeCredits(data)} credits\n`;
+  result += `Amount owed is ${usd(data.totalAmount)}\n`;
+  result += `You earned ${data.totalVolumeCredits} credits\n`;
 
   return result;
 }
