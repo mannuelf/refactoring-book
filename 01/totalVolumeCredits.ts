@@ -1,10 +1,9 @@
-import { Invoice } from './types.ts';
-import { volumeCreditsFor } from './volumeCreditsFor.ts';
+import type { IInvoice } from './types.ts';
 
-export function totalVolumeCredits(invoice: Invoice) {
+export function totalVolumeCredits(invoice: IInvoice): number {
   let volumeCredits = 0;
   for (const perf of invoice.performances) {
-    volumeCredits += volumeCreditsFor(perf);
+    volumeCredits += perf.volumeCredits;
   }
   return volumeCredits;
 }

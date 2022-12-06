@@ -1,6 +1,6 @@
-import { Plays } from '../types.ts';
+import { IPlays } from '../types.ts';
 
-export const plays: Plays = {
+export const plays: IPlays = {
   hamlet: { name: 'Hamlet', type: 'tragedy' },
   'as-like': { name: 'As You Like It', type: 'comedy' },
   othello: { name: 'Othello', type: 'tragedy' },

@@ -1,8 +1,9 @@
-export interface Invoice {
+export interface IInvoice {
   customer: string;
   performances: PlayPerformance[];
+  totalAmount: number;
 }
-export interface Plays {
+export interface IPlays {
   [key: string]: Play;
 }
 
@@ -13,4 +14,5 @@ export type PlayPerformance = {
   audience: number;
   play: Play;
   amount: number;
+  volumeCredits: number;
 };
