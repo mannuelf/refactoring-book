@@ -2,6 +2,7 @@ export interface IInvoice {
   customer: string;
   performances: PlayPerformance[];
   totalAmount: number;
+  totalVolumeCredits: number;
 }
 export interface IPlays {
   [key: string]: Play;

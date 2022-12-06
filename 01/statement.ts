@@ -11,11 +11,13 @@ export function statement(invoice: IInvoice, plays: IPlays) {
     customer: '',
     performances: [],
     totalAmount: 0,
+    totalVolumeCredits: 0,
   };
 
   statementData.customer = invoice.customer;
   statementData.performances = invoice.performances.map(enrichPerformance);
   statementData.totalAmount = totalAmount(statementData);
+  statementData.totalVolumeCredits = totalVolumeCredits(statementData);
 
   function enrichPerformance(aPerformance: PlayPerformance) {
     const result: PlayPerformance = Object.assign({}, aPerformance);
@@ -35,9 +37,7 @@ function renderPlaintText(data: IInvoice, plays: IPlays) {
   let result = `Statement for ${data.customer}\n`;
 
   for (const perf of data.performances) {
-    console.log(perf);
-
-    result += `${perf.play.name}: ${usd(perf.amount)} (${perf.amount} seats)\n`;
+    result += `${perf.play.name}: ${usd(perf.amount)} (${perf.audience} seats)\n`;
   }
 
   result += `Amount owed is ${usd(totalAmount(data))}\n`;
