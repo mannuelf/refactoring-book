@@ -1,9 +1,6 @@
 import type { Invoice } from './types.ts';
 
-export default function totalAmount(data: Invoice): number {
-  let result = 0;
-  for (const perf of data.performances) {
-    result += perf.amount;
-  }
-  return result;
+export default function totalAmount(invoice: Invoice): number {
+  // Replace loop with pipeline
+  return invoice.performances.reduce((total, p) => total + p.amount, 0);
 }
