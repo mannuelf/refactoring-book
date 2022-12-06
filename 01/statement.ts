@@ -2,12 +2,12 @@ import { amountFor } from './amountFor.ts';
 import { playFor } from './playFor.ts';
 import totalAmount from './totalAmount.ts';
 import { totalVolumeCredits } from './totalVolumeCredits.ts';
-import { IInvoice, IPlays, PlayPerformance } from './types.ts';
+import { Invoice, Plays, PlayPerformance } from './types.ts';
 import { usd } from './usd.ts';
 import { volumeCreditsFor } from './volumeCreditsFor.ts';
 
-export function statement(invoice: IInvoice, plays: IPlays) {
-  const statementData: IInvoice = {
+export function statement(invoice: Invoice, plays: Plays) {
+  const statementData: Invoice = {
     customer: '',
     performances: [],
     totalAmount: 0,
@@ -32,7 +32,7 @@ export function statement(invoice: IInvoice, plays: IPlays) {
   return renderPlaintText(statementData, plays);
 }
 
-function renderPlaintText(data: IInvoice, plays: IPlays) {
+function renderPlaintText(data: Invoice, plays: Plays) {
   console.log('💵 generating plain text statement 💵');
   let result = `Statement for ${data.customer}\n`;
 

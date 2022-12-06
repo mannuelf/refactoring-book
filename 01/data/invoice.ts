@@ -1,6 +1,6 @@
-import { IInvoice } from '../types.ts';
+import { Invoice } from '../types.ts';
 
-export const invoice: IInvoice = {
+export const invoice: Invoice = {
   customer: 'BigCo',
   performances: [
     {

@@ -1,6 +1,6 @@
-import type { IInvoice } from './types.ts';
+import type { Invoice } from './types.ts';
 
-export default function totalAmount(data: IInvoice): number {
+export default function totalAmount(data: Invoice): number {
   let result = 0;
   for (const perf of data.performances) {
     result += perf.amount;

@@ -1,10 +1,10 @@
-export interface IInvoice {
+export interface Invoice {
   customer: string;
   performances: PlayPerformance[];
   totalAmount: number;
   totalVolumeCredits: number;
 }
-export interface IPlays {
+export interface Plays {
   [key: string]: Play;
 }
 
