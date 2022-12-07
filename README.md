@@ -1,6 +1,6 @@
 # Refactoring 2nd Edition
 
-Example code re-written for my education purposes from "Refactoring - Improving the design of existing code"
+Example code re-written for my education purposes from "Refactoring - Improving the design of existing code by Martin Fowler"
 
 ## Run the code
 
