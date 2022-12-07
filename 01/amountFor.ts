@@ -1,9 +1,9 @@
 import type { Play, PlayPerformance } from './types.ts';
 
-export function amountFor(aPerformance: PlayPerformance, play: Play) {
+export function amountFor(aPerformance: PlayPerformance): number {
   let result = 0;
 
-  switch (play.type) {
+  switch (aPerformance.play.type) {
     case 'tragedy':
       result = 40000;
 
@@ -23,7 +23,7 @@ export function amountFor(aPerformance: PlayPerformance, play: Play) {
       result += 300 * aPerformance.audience;
       break;
     default:
-      throw new Error(`unknown type: ${play.type}`);
+      throw new Error(`unknown type: ${aPerformance.play.type}`);
   }
   return result;
 }
