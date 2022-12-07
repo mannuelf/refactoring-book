@@ -12,4 +12,6 @@ deno run --allow-all ./main.ts
 
 ![refactoring](https://res.cloudinary.com/mannuel/image/upload/v1669790937/images/IMG_2279.jpg)
 
+[www.mannuelferreira.com](https://mannuelferreira.com)
+![manneul ferreira](https://res.cloudinary.com/mannuel/image/upload/v1670391672/images/footer-github.png)
 
