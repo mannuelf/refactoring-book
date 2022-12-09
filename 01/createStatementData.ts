@@ -5,6 +5,23 @@ import { totalVolumeCredits } from './totalVolumeCredits.ts';
 import type { Invoice, PlayPerformance, Plays } from './types.ts';
 import { volumeCreditsFor } from './volumeCreditsFor.ts';
 
+class PerformanceCalculator {
+  constructor(aPerformance) {
+    this.performance = aPerformance;
+  }
+}
+
+function enrichPerformance(aPerformance: PlayPerformance) {
+  const calculator = new PerformanceCalculator(aPerformance);
+  const result: PlayPerformance = Object.assign({}, aPerformance);
+
+  result.play = playFor(result);
+  result.amount = amountFor(result);
+  result.volumeCredits = volumeCreditsFor(result);
+
+  return result;
+}
+
 export function createStatementData(invoice: Invoice, plays: Plays) {
   const statementData: Invoice = {
     customer: '',
@@ -17,16 +34,6 @@ export function createStatementData(invoice: Invoice, plays: Plays) {
   statementData.performances = invoice.performances.map(enrichPerformance);
   statementData.totalAmount = totalAmount(statementData);
   statementData.totalVolumeCredits = totalVolumeCredits(statementData);
-
-  function enrichPerformance(aPerformance: PlayPerformance) {
-    const result: PlayPerformance = Object.assign({}, aPerformance);
-
-    result.play = playFor(result);
-    result.amount = amountFor(result);
-    result.volumeCredits = volumeCreditsFor(result);
-
-    return result;
-  }
 
   return statementData;
 }
