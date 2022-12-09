@@ -6,13 +6,14 @@ import type { Invoice, PlayPerformance, Plays } from './types.ts';
 import { volumeCreditsFor } from './volumeCreditsFor.ts';
 
 class PerformanceCalculator {
-  constructor(aPerformance) {
+  constructor(aPerformance, aPlay) {
     this.performance = aPerformance;
+    this.play = aPlay;
   }
 }
 
 function enrichPerformance(aPerformance: PlayPerformance) {
-  const calculator = new PerformanceCalculator(aPerformance);
+  const calculator = new PerformanceCalculator(aPerformance, playFor(aPerformance));
   const result: PlayPerformance = Object.assign({}, aPerformance);
 
   result.play = playFor(result);
