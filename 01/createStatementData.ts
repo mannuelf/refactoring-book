@@ -1,41 +1,10 @@
 import { amountFor } from './amountFor.ts';
+import { PerformanceCalculator } from './PerformanceCalculator.ts';
 import { playFor } from './playFor.ts';
 import totalAmount from './totalAmount.ts';
 import { totalVolumeCredits } from './totalVolumeCredits.ts';
-import type { Invoice, Play, PlayPerformance, Plays } from './types.ts';
+import type { Invoice, PlayPerformance, Plays } from './types.ts';
 import { volumeCreditsFor } from './volumeCreditsFor.ts';
-
-class PerformanceCalculator {
-  performance: PlayPerformance;
-  play: Play;
-
-  constructor(aPerformance: PlayPerformance, aPlay: Play) {
-    this.performance = aPerformance;
-    this.play = aPlay;
-  }
-
-  get amount() {
-    let result = 0;
-    switch (this.play.type) {
-      case 'tragedy':
-        result = 40000;
-        if (this.performance.audience > 30) {
-          result += 1000 * (this.performance.audience - 30);
-        }
-        break;
-      case 'comedy':
-        result = 30000;
-        if (this.performance.audience > 20) {
-          result += 10000 + 500 * (this.performance.audience - 20);
-        }
-        result += 300 * this.performance.audience;
-        break;
-      default:
-        throw new Error(`unknown type: ${this.play.type}`);
-    }
-    return result;
-  }
-}
 
 function enrichPerformance(aPerformance: PlayPerformance) {
   const calculator = new PerformanceCalculator(aPerformance, playFor(aPerformance));
