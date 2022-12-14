@@ -2,10 +2,10 @@ import { PerformanceCalculator } from './PerformanceCalculator.ts';
 import { playFor } from './playFor.ts';
 import totalAmount from './totalAmount.ts';
 import { totalVolumeCredits } from './totalVolumeCredits.ts';
-import type { Invoice, PlayPerformance, Plays } from './types.ts';
+import type { Invoice, Play, PlayPerformance, Plays } from './types.ts';
 
 function enrichPerformance(aPerformance: PlayPerformance) {
-  const calculator = new PerformanceCalculator(aPerformance, playFor(aPerformance));
+  const calculator = createPerformanceCalculator(aPerformance, playFor(aPerformance));
   const result: PlayPerformance = Object.assign({}, aPerformance);
 
   result.play = playFor(result);
@@ -13,6 +13,10 @@ function enrichPerformance(aPerformance: PlayPerformance) {
   result.volumeCredits = calculator.volumeCredits;
 
   return result;
+}
+
+function createPerformanceCalculator(aPerformance: PlayPerformance, aPlay: Play) {
+  return new PerformanceCalculator(aPerformance, aPlay);
 }
 
 export function createStatementData(invoice: Invoice, plays: Plays) {
