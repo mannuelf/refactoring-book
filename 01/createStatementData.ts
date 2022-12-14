@@ -1,4 +1,3 @@
-import { amountFor } from './amountFor.ts';
 import { PerformanceCalculator } from './PerformanceCalculator.ts';
 import { playFor } from './playFor.ts';
 import totalAmount from './totalAmount.ts';
