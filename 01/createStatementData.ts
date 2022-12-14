@@ -34,6 +34,10 @@ class TragedyCalculator extends PerformanceCalculator {
     }
     return result;
   }
+
+  get volumeCredits(): number {
+    return super.volumeCredits + Math.floor(this.performance.audience / 5);
+  }
 }
 class ComedyCalculator extends PerformanceCalculator {
   get amount() {
@@ -43,6 +47,10 @@ class ComedyCalculator extends PerformanceCalculator {
     }
     result += 300 * this.performance.audience;
     return result;
+  }
+
+  get volumeCredits() {
+    return super.volumeCredits + Math.floor(this.performance.audience / 5);
   }
 }
 
