@@ -4,7 +4,6 @@ import { playFor } from './playFor.ts';
 import totalAmount from './totalAmount.ts';
 import { totalVolumeCredits } from './totalVolumeCredits.ts';
 import type { Invoice, PlayPerformance, Plays } from './types.ts';
-import { volumeCreditsFor } from './volumeCreditsFor.ts';
 
 function enrichPerformance(aPerformance: PlayPerformance) {
   const calculator = new PerformanceCalculator(aPerformance, playFor(aPerformance));
