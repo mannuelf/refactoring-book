@@ -10,16 +10,7 @@ export class PerformanceCalculator {
   }
 
   get amount() {
-    let result = 0;
-    switch (this.play.type) {
-      case 'tragedy':
-        throw 'subclass takes care of this, you should not get here';
-      case 'comedy':
-        throw 'subclass takes care of this, you should not get here';
-      default:
-        throw new Error(`unknown type: ${this.play.type}`);
-    }
-    return result;
+    throw new Error('subclass responsibility');
   }
 
   get volumeCredits() {
