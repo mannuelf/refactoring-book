@@ -12,7 +12,7 @@ function enrichPerformance(aPerformance: PlayPerformance) {
 
   result.play = calculator.play;
   result.amount = amountFor(result);
-  result.volumeCredits = volumeCreditsFor(result);
+  result.volumeCredits = calculator.volumeCredits;
 
   return result;
 }
